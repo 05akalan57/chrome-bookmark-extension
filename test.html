@@ -1,0 +1,34 @@
+<title>Bookmark save firebase test</title>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.3/firebase.js"></script>
+<body bgcolor="DarkGrey">
+  <div id="app">
+    <h1>Bookmark save firebase test</h1>
+    <div
+      style="margin-bottom: 20px; padding: 5px; border: solid; width: 400px"
+      v-for="bookmark in bookmarks"
+    >
+      <img :src="bookmark.img" width="100%" />
+      <h4>{{ bookmark.title }}</h4>
+      <p>{{ bookmark.timestamp }}</p>
+      <a :href="bookmark.url">{{ bookmark.url.split("/")[2] }}</a>
+    </div>
+  </div>
+  <script>
+    firebase.initializeApp({
+      databaseURL: "https://akalan-db.firebaseio.com",
+    });
+    new Vue({
+      el: "#app",
+      data: {
+        bookmarks: [],
+      },
+      created: function () {
+        var db = firebase.database().ref("bookmarks/");
+        db.on("child_added", (snapshot) => {
+          this.bookmarks.push({ ...snapshot.val(), id: snapshot.key });
+        });
+      },
+    });
+  </script>
+</body>

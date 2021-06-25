@@ -1,0 +1,16 @@
+{
+  "name": "Bookmark Save",
+  "version": "1.1",
+  "description": "Aktif sekmeyi veritabanına kayıt eder",
+  "permissions": ["activeTab"],
+  "browser_action": {
+    "default_title": "Bookmark Save",
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "512": "icon.png"
+  },
+  "manifest_version": 2,
+  "content_security_policy": "script-src 'self' https://www.gstatic.com https://akalan-db.firebaseio.com https://s-usc1c-nss-220.firebaseio.com; object-src 'self'"
+}
