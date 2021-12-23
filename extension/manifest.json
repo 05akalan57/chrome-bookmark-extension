@@ -12,5 +12,5 @@
     "512": "icon.png"
   },
   "manifest_version": 2,
-  "content_security_policy": "script-src 'self' https://www.gstatic.com https://akalan-db.firebaseio.com https://s-usc1c-nss-220.firebaseio.com; object-src 'self'"
+  "content_security_policy": "script-src 'self' https://www.gstatic.com https://*.firebaseio.com; object-src 'self'"
 }
